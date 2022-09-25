@@ -124,7 +124,7 @@ def insert_acoes(acaoDto: AcaoDTO):
     acoes.append(acao_entity)
     return acaoDto
 
-@app.delete("/acoes/delete", status_code=200)
+@app.delete("/acoes/delete", status_code=204)
 def deleteAllAcoes():
     deleteAllAcoesBanco()
     acoes.clear()

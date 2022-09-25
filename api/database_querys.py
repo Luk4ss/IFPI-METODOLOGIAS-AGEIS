@@ -15,6 +15,7 @@ def getAll():
     result_set = db.execute("SELECT * FROM acao") 
     return result_set 
 
+
 def getAllOrdenado(orderBy):
     connection_string = "postgresql://postgres:123456@localhost:5432/metagil"
     db = create_engine(connection_string)
@@ -33,9 +34,9 @@ def deleteAllAcoesBanco():
     db = create_engine(connection_string)
     db.execute("DELETE FROM acao") 
 
+
 def main():
     pass
-
 
 
 if __name__ == '__main__':
