@@ -8,7 +8,7 @@ from datetime import *
 from sqlalchemy import *
 from psycopg2 import *
 
-from database_querys import getAll, insertAcao
+from database_querys import getAll, insertAcao, getAllOrdenado, deleteAllAcoesBanco
 
 app = FastAPI()
 
@@ -67,22 +67,47 @@ class Acao:
 
 acoes = []
 
-acoes_no_banco = getAll()
-
-for r in acoes_no_banco:
-    cd = r["codigo"]
-    vu = float(r["valor_unitario"])
-    qtd = int(r["quantidade"])
-    op = r["operacao"]
-    dt_op = r["dt_operacao"]
-    taxa = float(r["taxa_corretagem"])
-    id = int(r["id_acao"])
-    acao = Acao(cd, vu, qtd, taxa, op, dt_op, id)
-    acoes.append(acao)
+def carregar_dados(orderBy=0) -> None:
+    acoes.clear()
+    if orderBy == 0:
+        acoes_no_banco = getAll()
+    elif orderBy == 1:
+         acoes_no_banco = getAllOrdenado('codigo')
+    elif orderBy == 2:
+        acoes_no_banco = getAllOrdenado('operacao')
+    else:
+       acoes_no_banco = getAllOrdenado('dt_operacao') 
+    for r in acoes_no_banco:
+        cd = r["codigo"]
+        vu = float(r["valor_unitario"])
+        qtd = int(r["quantidade"])
+        op = r["operacao"]
+        dt_op = r["dt_operacao"]
+        taxa = float(r["taxa_corretagem"])
+        id = int(r["id_acao"])
+        acao = Acao(cd, vu, qtd, taxa, op, dt_op, id)
+        acoes.append(acao)
 
 
 @app.get("/acoes", status_code = 200)
 def list_acoes():
+    carregar_dados()
+    return acoes
+
+@app.get("/acoes/orderByCodigo", status_code = 200)
+def list_acoes_ordenadas():
+    carregar_dados(1)
+    return acoes
+
+
+@app.get("/acoes/orderByOperacao", status_code = 200)
+def list_acoes_ordenadas():
+    carregar_dados(2)
+    return acoes
+
+@app.get("/acoes/orderByData", status_code = 200)
+def list_acoes_ordenadas():
+    carregar_dados(3)
     return acoes
 
 
@@ -98,3 +123,8 @@ def insert_acoes(acaoDto: AcaoDTO):
     insertAcao(acao_entity)
     acoes.append(acao_entity)
     return acaoDto
+
+@app.delete("/acoes/delete", status_code=200)
+def deleteAllAcoes():
+    deleteAllAcoesBanco()
+    acoes.clear()

@@ -10,6 +10,8 @@ export class AcaoService {
 
   baseURL: string = "http://localhost:8000/acoes";
 
+  ordertye = 'asc'
+
   constructor(private http: HttpClient) { }
 
   findAll():Observable<Acao[]>{
@@ -18,6 +20,14 @@ export class AcaoService {
 
   insert(acao: Acao):Observable<Acao>{
     return this.http.post<Acao>(this.baseURL, acao);
+  }
+
+  findAllOrdernado(orderBy: string):Observable<Acao[]>{
+    return this.http.get<Acao[]>(this.baseURL + '/orderBy' + orderBy)
+  }
+
+  deleteAll():Observable<Acao[]>{
+    return this.http.delete<Acao[]>(this.baseURL + "/delete")
   }
 
   /*

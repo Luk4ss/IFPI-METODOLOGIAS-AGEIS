@@ -1,6 +1,16 @@
-<button mat-raised-button (click)="navigateToAcaoCreate()" color="primary">
+<button mat-raised-button (click)="navigateToAcaoCreate()" color="primary" class="btn">
     Nova Ação
 </button>
+<button mat-raised-button (click)="ordernarPorCodigo('Codigo')" color="warn" class="btn">
+  Ordernar por Código
+</button>
+<button mat-raised-button (click)="ordernarPorCodigo('Data')" color="warn" class="btn">
+  Data da Transação
+</button>
+<button mat-raised-button (click)="ordernarPorCodigo('Operacao')" color="warn" class="btn">
+  Ordernar por Tipo de Operação
+</button>
+
 
 <div class="mat-elevation-z8" >
     <table mat-table class="full-width-table" matSort aria-label="Elements" [dataSource]="acoes">
@@ -64,7 +74,10 @@
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
       <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
     </table>
-  
+    
+    <button mat-raised-button (click)="deleteAll()" color="warn" class="btn">
+      DELETAR TODAS AS AÇÕES
+    </button>
 
   </div>
   
