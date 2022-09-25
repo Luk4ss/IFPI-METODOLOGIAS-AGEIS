@@ -1,0 +1,14 @@
+<mat-card class="signin">
+    <form (ngSubmit)="onLogin(loginForm)" #loginForm="ngForm">
+        <mat-form-field>
+            <label for="email">Email:</label>
+            <input type="email" name="email" id="email" required email ngModel matInput>
+        </mat-form-field>
+        <mat-form-field>
+            <label for="password">Password:</label>
+            <input type="password" name="password" id="password" required ngModel matInput pattern="[0-9a-z]{4,10}">
+        </mat-form-field>
+        <button mat-raised-button type="submit" color="primary" [disabled]="!loginForm.valid">LOGIN</button>
+    </form>
+</mat-card>
+

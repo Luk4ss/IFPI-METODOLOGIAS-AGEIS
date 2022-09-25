@@ -1,0 +1,22 @@
+<mat-card>
+    <mat-card-title>
+        CADASTRAR PET
+    </mat-card-title>
+    <form>
+        <mat-form-field>
+            <input type="text" placeholder="Nome" name="name" [(ngModel)]="pet.name" matInput>
+        </mat-form-field>
+        <mat-form-field>
+            <input type="text" placeholder="Gênero" name="gender" [(ngModel)]="pet.gender" matInput>
+        </mat-form-field>
+        <mat-form-field>
+            <input type="text" placeholder="Preço (R$)" name="price" [(ngModel)]="pet.price" matInput>
+        </mat-form-field>
+    </form>
+    <button mat-raised-button color="warn" (click)="navigateToPets()">
+        VOLTAR
+    </button>
+    <button mat-raised-button  color="primary" (click)="onSavePet()">
+        SALVAR
+    </button>
+</mat-card>

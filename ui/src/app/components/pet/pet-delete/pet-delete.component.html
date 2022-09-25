@@ -1,0 +1,18 @@
+<mat-card>
+    <mat-card-title>
+        DELETAR PET?
+    </mat-card-title>
+    <form>
+        <mat-form-field>
+            <input type="text" name="name" disabled matInput [(ngModel)]="pet.name">
+        </mat-form-field>
+        <mat-form-field>
+            <input type="text" name="gender" disabled  [(ngModel)]="pet.gender" matInput>
+        </mat-form-field>
+        <mat-form-field>
+            <input type="text" name="price" disabled [(ngModel)]="pet.price" matInput>
+        </mat-form-field>
+    </form>
+    <button mat-raised-button (click)="navigateToPets()">VOLTAR</button>
+    <button mat-raised-button (click)="onDelete()" color="warn">DELETAR</button>
+</mat-card>

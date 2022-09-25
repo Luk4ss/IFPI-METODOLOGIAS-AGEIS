@@ -1,0 +1,62 @@
+<mat-card>
+    <mat-card-title>
+        CADASTRAR NOVA TRANSAÇÃO
+    </mat-card-title>
+    <form>
+        <mat-form-field>
+            <input 
+            type="text" 
+            placeholder="Data da transação" 
+            name="dt_transacao"
+            [(ngModel)]="acao.data"
+            matInput
+            required
+            >
+        </mat-form-field>
+        <mat-form-field>
+            <input type="text" placeholder="Codigo" name="codigo" [(ngModel)]="acao.codigo" matInput required>
+        </mat-form-field>
+        <mat-form-field>
+            <input 
+            type="number" 
+            placeholder="Valor Unitário (R$)" 
+            name="codigo"
+            [(ngModel)]="acao.valorUnitario"
+            matInput
+            required
+            >
+        </mat-form-field>
+        <mat-form-field>
+            <input 
+            type="number" 
+            placeholder="Quantidade" 
+            name="quantidade"
+            [(ngModel)]="acao.quantidade"
+            matInput
+            required
+            >
+        </mat-form-field>
+        <mat-form-field>
+            <input 
+            type="number" 
+            placeholder="Taxa Corretagem (R$)" 
+            name="corretagem"
+            [(ngModel)]="acao.taxaCorretagem"
+            matInput
+            required
+            >
+        </mat-form-field>
+       <p>## TIPO DE OPERAÇÃO ##</p>
+        <mat-radio-group aria-label="TIPO DE OPERAÇÃO" id="op" aria-placeholder="TIPO DE OPERAÇÃO">
+            <mat-radio-button value="COMPRA" [checked]="acao.operacao == 'COMPRA' " (change)="tpOperacao('COMPRA')">COMPRA</mat-radio-button>
+            |     
+            <mat-radio-button value="VENDA"  [checked]="acao.operacao == 'VENDA'"   (change)="tpOperacao('VENDA')">VENDA</mat-radio-button>
+        </mat-radio-group>   
+    </form>
+    <button mat-raised-button color="warn" (click)="navigateToAcoes()">
+        VOLTAR
+    </button>
+    <button mat-raised-button  color="primary" (click)="onSaveAcao()">
+        SALVAR
+    </button>
+</mat-card>

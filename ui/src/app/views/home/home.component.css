@@ -1,0 +1,19 @@
+.home .title{
+    font-size: 3rem;
+    font-weight: 300;
+    line-height: 1.2;
+}
+
+.home .subtitle{
+    font-size: 1.1rem;
+}
+
+.container{
+    margin: 5px;
+    width: auto;
+    height: auto;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+    box-shadow: 5px 5px 2px black;
+
+}

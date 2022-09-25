@@ -1,0 +1,18 @@
+<mat-card>
+    <mat-card-title>
+        ATUALIZAR CADASTRO
+    </mat-card-title>
+    <form>
+        <mat-form-field>
+            <input type="text" name="name" matInput [(ngModel)]="pet.name">
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput type="text" name="gender" [(ngModel)]="pet.gender">
+        </mat-form-field>
+        <mat-form-field>
+            <input type="text" matInput name="price" [(ngModel)]="pet.price">
+        </mat-form-field>
+    </form>
+    <button color="warn" mat-raised-button (click)="navigateToPets()">VOLTAR</button>
+    <button mat-raised-button color="primary" (click)="onAtualizarPet()">ATUALIZAR</button>
+</mat-card>

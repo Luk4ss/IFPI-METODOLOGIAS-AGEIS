@@ -1,0 +1,8 @@
+button{
+    margin: 15px 5px;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+}

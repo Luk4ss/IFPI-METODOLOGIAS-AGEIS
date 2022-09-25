@@ -1,0 +1,18 @@
+form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+button{
+    margin: 5px;
+}
+
+.signin{
+    margin: 0 auto;
+    margin-top: 50px;
+    max-height: fit-content;
+    max-width: 512px;
+    align-self: center;
+    border: 1px solid blue;
+}

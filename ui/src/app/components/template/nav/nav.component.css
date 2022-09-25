@@ -1,0 +1,21 @@
+.content{
+    padding: 10px;
+    background-color: #FFFFEF;
+
+}
+
+.nav-list a{
+    margin-bottom: 10px;
+    margin-right: 5px;
+    
+}
+
+.sidenav{
+    background-color: rgba(0, 0, 0, 0.2);
+    box-shadow:2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+    margin-left: 2px;
+}
+
+.container{
+    height: 100%;
+}

@@ -1,0 +1,29 @@
+<mat-toolbar class="header mat-elevation-z4">
+    <span>
+        <a>
+            <img src="assets/_img/generic-logo.jpg" alt="logo" class="logo">
+        </a>
+    </span>
+    <span class="title-group">
+        <a href="" routerLink="{{ routeUrl }}">
+            <i class="material-icons">
+                {{ icon }}
+            </i>
+            {{ title }}
+        </a>
+    </span>
+    <span class="cart">
+        <a routerLink="/acoes">
+            <i class="material-icons">
+                shopping_cart
+            </i>
+        </a>
+    </span>
+    <span class="account">
+        <a routerLink="/login">
+            <i class="material-icons">
+                account_circle
+            </i>
+        </a>
+    </span>
+</mat-toolbar>
