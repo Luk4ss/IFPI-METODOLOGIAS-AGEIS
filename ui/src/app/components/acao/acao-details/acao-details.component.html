@@ -4,7 +4,7 @@
     </mat-card-title>
     <form>
         <mat-form-field>
-            <input matInput placeholder="Código do Ativo" type="text" [(ngModel)]="query" name="pesquisa">
+            <input matInput placeholder="Código do Ativo" type="text" [(ngModel)]="query" name="pesquisa" style="text-transform:uppercase">
         </mat-form-field>
     </form>
     <button mat-raised-button (click)="navigateToAcoes()" color="warn" class="btn">
@@ -77,5 +77,11 @@
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
       <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
     </table>
+
+    <mat-card>
+      <mat-card-title>
+          PREÇO MÉDIO TOTAL DAS AÇÕES {{codigo}}: {{preco_medio_total | currency: 'BRL'}}
+      </mat-card-title>
+    </mat-card>
     
 </div>

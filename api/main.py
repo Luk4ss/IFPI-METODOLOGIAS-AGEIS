@@ -120,7 +120,7 @@ def list_acoes_ordenadas():
 
 @app.post("/acoes", status_code = 201)
 def insert_acoes(acaoDto: AcaoDTO):
-    codigo = acaoDto.codigo
+    codigo = acaoDto.codigo.upper().strip()
     valorUnitario = acaoDto.valorUnitario
     quantidade = acaoDto.quantidade
     taxaCorretagem = acaoDto.taxaCorretagem
