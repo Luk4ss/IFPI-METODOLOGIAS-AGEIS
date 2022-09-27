@@ -79,6 +79,12 @@
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
       <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
     </table>
+
+    <mat-card>
+      <mat-card-title>
+          PREÇO MÉDIO TOTAL DE ATIVOS: {{preco_medio_total | currency: 'BRL'}}
+      </mat-card-title>
+    </mat-card>
     
     <button mat-raised-button (click)="deleteAll()" color="warn" class="btn">
       DELETAR TODAS AS AÇÕES
