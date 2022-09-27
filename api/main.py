@@ -75,8 +75,10 @@ def carregar_dados(orderBy=0) -> None:
          acoes_no_banco = getAllOrdenado('codigo')
     elif orderBy == 2:
         acoes_no_banco = getAllOrdenado('operacao')
-    else:
+    elif orderBy == 3:
        acoes_no_banco = getAllOrdenado('dt_operacao') 
+    else:
+        acoes_no_banco = getAllOrdenado('valor_total')
     for r in acoes_no_banco:
         cd = r["codigo"]
         vu = float(r["valor_unitario"])
@@ -108,6 +110,11 @@ def list_acoes_ordenadas():
 @app.get("/acoes/orderByData", status_code = 200)
 def list_acoes_ordenadas():
     carregar_dados(3)
+    return acoes
+
+@app.get("/acoes/orderByValorTotal", status_code = 200)
+def list_acoes_ordenadas():
+    carregar_dados(4)
     return acoes
 
 

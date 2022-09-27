@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AcaoCreateComponent } from './components/acao/acao-create/acao-create.component';
+import { AcaoDetailsComponent } from './components/acao/acao-details/acao-details.component';
 import { AcaoListComponent } from './components/acao/acao-list/acao-list.component';
 import { LoginComponent } from './components/login/login.component';
 import { AcaoCrudComponent } from './views/acao-crud/acao-crud.component';
@@ -28,6 +29,10 @@ const routes: Routes = [
       {
         path: "create",
         component: AcaoCreateComponent
+      },
+      {
+        path: "details",
+        component: AcaoDetailsComponent
       }
     ]    
   }

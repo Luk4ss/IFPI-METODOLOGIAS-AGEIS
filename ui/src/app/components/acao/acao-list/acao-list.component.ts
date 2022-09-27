@@ -29,7 +29,13 @@ export class AcaoListComponent implements OnInit {
     this.router.navigate(['create'], {relativeTo: this.route })
   }
 
-  ordernarPorCodigo(order: string):void{
+  navigateToAcaoDetails():void{
+    console.log("Navegando...")
+    this.router.navigate(['details'], {relativeTo: this.route })
+  
+  }
+
+  ordernarAcoes(order: string):void{
     this.acaoService.findAllOrdernado(order).subscribe(
       (acoes) => this.acoes = acoes
     );

@@ -30,6 +30,7 @@ import { AcaoListComponent } from './components/acao/acao-list/acao-list.compone
 import { AcaoCrudComponent } from './views/acao-crud/acao-crud.component';
 import { AcaoCreateComponent } from './components/acao/acao-create/acao-create.component';
 import { MatRadioModule } from '@angular/material/radio';
+import { AcaoDetailsComponent } from './components/acao/acao-details/acao-details.component';
 
 registerLocaleData(localePt);
 
@@ -44,7 +45,8 @@ registerLocaleData(localePt);
     LoginComponent,
     AcaoListComponent,
     AcaoCrudComponent,
-    AcaoCreateComponent
+    AcaoCreateComponent,
+    AcaoDetailsComponent
   ],
   imports: [
     BrowserModule,

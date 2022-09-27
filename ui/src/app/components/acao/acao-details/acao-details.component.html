@@ -1,24 +1,22 @@
-<button mat-raised-button (click)="navigateToAcaoCreate()" color="primary" class="btn">
-    Nova Ação
-</button>
-<button mat-raised-button (click)="navigateToAcaoDetails()" color="primary" class="btn">
-  Pesquisar Ativo
-</button>
-<button mat-raised-button (click)="ordernarAcoes('Codigo')" color="warn" class="btn">
-  Ordernar por Código
-</button>
-<button mat-raised-button (click)="ordernarAcoes('Data')" color="warn" class="btn">
-  Data da Transação
-</button>
-<button mat-raised-button (click)="ordernarAcoes('Operacao')" color="warn" class="btn">
-  Ordernar por Tipo de Operação
-</button>
-<button mat-raised-button (click)="ordernarAcoes('ValorTotal')" color="warn" class="btn">
- Ordernar Por Valor Total da Operação
-</button>
+<mat-card>
+    <mat-card-title>
+        PESQUISAR POR CÓDIGO DO ATIVO
+    </mat-card-title>
+    <form>
+        <mat-form-field>
+            <input matInput placeholder="Código do Ativo" type="text" [(ngModel)]="query" name="pesquisa">
+        </mat-form-field>
+    </form>
+    <button mat-raised-button (click)="navigateToAcoes()" color="warn" class="btn">
+        VOLTAR
+    </button>
+    <button mat-raised-button (click)="pesquisar()" color="primary" class="btn">
+        PESQUISAR
+    </button>
+</mat-card>
 
 <div class="mat-elevation-z8" >
-    <table mat-table class="full-width-table" matSort aria-label="Elements" [dataSource]="acoes">
+    <table mat-table class="full-width-table" matSort aria-label="Elements" [dataSource]="acoes_filtradas">
       <!-- Id Column -->
       <ng-container matColumnDef="data">
         <th mat-header-cell *matHeaderCellDef mat-sort-header>DATA DA OPERAÇÃO</th>
@@ -80,9 +78,4 @@
       <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
     </table>
     
-    <button mat-raised-button (click)="deleteAll()" color="warn" class="btn">
-      DELETAR TODAS AS AÇÕES
-    </button>
-
-  </div>
-  
+</div>

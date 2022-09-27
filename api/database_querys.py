@@ -1,3 +1,4 @@
+from tkinter.tix import Tree
 from sqlalchemy import *
 from psycopg2 import *
 
@@ -9,6 +10,10 @@ from psycopg2 import *
 
 # Read
 
+global order;
+
+order = "desc"
+
 def getAll():
     connection_string = "postgresql://postgres:123456@localhost:5432/metagil"
     db = create_engine(connection_string)
@@ -17,9 +22,14 @@ def getAll():
 
 
 def getAllOrdenado(orderBy):
+    global order;
     connection_string = "postgresql://postgres:123456@localhost:5432/metagil"
     db = create_engine(connection_string)
-    result_set = db.execute(f"SELECT * FROM acao ORDER BY {orderBy} desc ") 
+    if order == "desc":
+        order = "asc"
+    else:
+        order = "desc"
+    result_set = db.execute(f"SELECT * FROM acao ORDER BY {orderBy} {order} ") 
     return result_set 
 
 
