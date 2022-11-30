@@ -76,7 +76,9 @@ def carregar_dados(orderBy=0) -> None:
     elif orderBy == 2:
         acoes_no_banco = getAllOrdenado('operacao')
     elif orderBy == 3:
-       acoes_no_banco = getAllOrdenado('dt_operacao') 
+       acoes_no_banco = getAllOrdenado('dt_operacao')
+    elif orderBy == 5:
+       acoes_no_banco = getAllOrdenado('id_acao') 
     else:
         acoes_no_banco = getAllOrdenado('valor_total')
     for r in acoes_no_banco:
@@ -115,6 +117,11 @@ def list_acoes_ordenadas():
 @app.get("/acoes/orderByValorTotal", status_code = 200)
 def list_acoes_ordenadas():
     carregar_dados(4)
+    return acoes
+
+@app.get("/acoes/orderById", status_code = 200)
+def list_acoes_ordenadas():
+    carregar_dados(5)
     return acoes
 
 

@@ -27,6 +27,8 @@ def getAllOrdenado(orderBy):
     db = create_engine(connection_string)
     if order == "desc":
         order = "asc"
+    if orderBy == "id_acao":
+        order = "asc"
     else:
         order = "desc"
     result_set = db.execute(f"SELECT * FROM acao ORDER BY {orderBy} {order} ") 

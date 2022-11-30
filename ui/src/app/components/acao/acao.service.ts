@@ -26,23 +26,6 @@ export class AcaoService {
     return this.http.get<Acao[]>(this.baseURL + '/orderBy' + orderBy)
   }
 
-  deleteAll():Observable<Acao[]>{
-    return this.http.delete<Acao[]>(this.baseURL + "/delete")
-  }
 
-  /*
-  findById(id: string):Observable<Acao>{
-    const url = `${this.baseURL}/${id}`;
-    return this.http.get<Acao>(url);
-  }
   
-
-  update(acao: Acao): Observable<Acao>{
-    return this.http.put<Acao>(`${this.baseURL}/${acao.id}`, acao);
-  }
-
-  delete(acao: Acao): Observable<Acao>{
-    return this.http.delete<Acao>(`${this.baseURL}/${acao.id}`);
-  }
-*/
 }

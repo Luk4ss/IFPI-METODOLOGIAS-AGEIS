@@ -69,10 +69,4 @@ export class AcaoListComponent implements OnInit {
     );
   }
 
-  deleteAll(): void{
-    this.acaoService.deleteAll().subscribe(
-      () => alert('Você ecluiu todas as ações do banco!')
-    )
-  }
-
 }
