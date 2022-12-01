@@ -68,6 +68,11 @@ class Acao:
 acoes = []
 
 def carregar_dados(orderBy=0) -> None:
+    """
+    Carrega as ações do banco de dados e ordena de acordo 
+    com o QueryParams informado.
+    
+    """
     acoes.clear()
     if orderBy == 0:
         acoes_no_banco = getAll()
@@ -95,38 +100,87 @@ def carregar_dados(orderBy=0) -> None:
 
 @app.get("/acoes", status_code = 200)
 def list_acoes():
+    """
+
+    Controller que responde ao verbo GET no recurso/acoes
+
+    Esse controller executa um método que retorna as ações do banco.
+
+    """
     carregar_dados()
     return acoes
 
 @app.get("/acoes/orderByCodigo", status_code = 200)
 def list_acoes_ordenadas():
+    """
+    
+    Controller que responde ao verbo GET no recurso acoes/orderByCodigo
+
+    Esse controller executa um método que retorna as ações do banco ordernadas por código.
+
+    """
     carregar_dados(1)
     return acoes
 
 
 @app.get("/acoes/orderByOperacao", status_code = 200)
 def list_acoes_ordenadas():
+    """
+    
+    Controller que responde ao verbo GET no recurso acoes/orderByOperacao
+
+    Esse controller executa um método que retorna as ações do banco ordernadas por Tipo de Operação.
+
+    """
     carregar_dados(2)
     return acoes
 
 @app.get("/acoes/orderByData", status_code = 200)
 def list_acoes_ordenadas():
+    """
+    
+    Controller que responde ao verbo GET no recurso acoes/orderByData
+
+    Esse controller executa um método que retorna as ações do banco ordernadas por Data.
+
+    """
     carregar_dados(3)
     return acoes
 
 @app.get("/acoes/orderByValorTotal", status_code = 200)
 def list_acoes_ordenadas():
+    """
+    
+    Controller que responde ao verbo GET no recurso acoes/orderByValorTotal
+
+    Esse controller executa um método que retorna as ações do banco ordernadas por valor Total.
+
+    """
     carregar_dados(4)
     return acoes
 
 @app.get("/acoes/orderById", status_code = 200)
 def list_acoes_ordenadas():
+    """
+    
+    Controller que responde ao verbo GET no recurso acoes/orderById
+
+    Esse controller executa um método que retorna as ações do banco ordernadas por Id.
+
+    """
     carregar_dados(5)
     return acoes
 
 
 @app.post("/acoes", status_code = 201)
 def insert_acoes(acaoDto: AcaoDTO):
+    """
+    
+    Controller que responde ao verbo POST no recurso /acoes
+
+    Esse controller converte uma acaoDTO em acao Entidade para guardar no banco de dados.
+
+    """
     codigo = acaoDto.codigo.upper().strip()
     valorUnitario = acaoDto.valorUnitario
     quantidade = acaoDto.quantidade
@@ -140,5 +194,12 @@ def insert_acoes(acaoDto: AcaoDTO):
 
 @app.delete("/acoes/delete", status_code=204)
 def deleteAllAcoes():
+    """
+    
+    Controller que responde ao verbo http DELETE no recurso acao/delete
+
+    Deleta todas as ações do banco de dados.
+
+    """
     deleteAllAcoesBanco()
     acoes.clear()
