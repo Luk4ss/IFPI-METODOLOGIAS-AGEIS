@@ -15,6 +15,11 @@ global order;
 order = "desc"
 
 def getAll():
+    """
+    
+    Conecta-se ao banco de dados e executa uma consulta retornado todas ações.
+
+    """
     connection_string = "postgresql://postgres:123456@localhost:5432/metagil"
     db = create_engine(connection_string)
     result_set = db.execute("SELECT * FROM acao") 
@@ -22,6 +27,11 @@ def getAll():
 
 
 def getAllOrdenado(orderBy):
+    """
+    
+    Conecta-se ao banco de dados e executa uma consulta retornado todas ações de forma ordenada.
+
+    """
     global order;
     connection_string = "postgresql://postgres:123456@localhost:5432/metagil"
     db = create_engine(connection_string)
@@ -36,12 +46,22 @@ def getAllOrdenado(orderBy):
 
 
 def insertAcao(acao):
+    """
+    
+    Conecta-se ao banco de dados e faz-se uma INSERT no banco de dados de uma ação.
+
+    """
     connection_string = "postgresql://postgres:123456@localhost:5432/metagil"
     db = create_engine(connection_string)
     db.execute(f"INSERT INTO acao(codigo, valor_unitario,  quantidade,   taxa_b3,  operacao,  taxa_corretagem,valor_total,dt_operacao) VALUES('{acao.codigo}', {acao.valorUnitario}, {acao.quantidade}, {acao.taxaB3}, '{acao.operacao}', {acao.taxaCorretagem},  {acao.valorTotal}, '{acao.data}')")
 
 
 def deleteAllAcoesBanco():
+    """
+    
+    Conecta-se ao banco de dados e executa uma consulta deletando todas ações.
+
+    """
     connection_string = "postgresql://postgres:123456@localhost:5432/metagil"
     db = create_engine(connection_string)
     db.execute("DELETE FROM acao") 
